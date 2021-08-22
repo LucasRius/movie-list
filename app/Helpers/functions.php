@@ -42,14 +42,7 @@ function getSearchMovieByName($query, $adult = false){
 function getGenre(){
     $getGenres = `curl --location --request GET 'https://api.themoviedb.org/3/genre/movie/list?api_key=4ec327e462149c3710d63be84b81cf4f&language=pt-BR'`;
     $genresArray = json_decode($getGenres, true);
-    $genres = $genresArray['genres'];
-    // foreach($genres as $item){
-    //     foreach($item as $key => $value){
-    //         $id = preg_replace('/[^0-9]/', '', $value);
-    //         $name =  preg_replace('/[0-9]+/', '', $value);                        
-    //     }
-                
-    // }
+    $genres = $genresArray['genres'];    
     return $genres;
 }
 
