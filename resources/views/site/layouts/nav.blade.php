@@ -17,7 +17,16 @@
         @if (Route::current()->getName() === 'site.list')
           <form class="d-flex">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Genero</option>              
+              @foreach ($genre as $item)
+                  @foreach ($item as $key => $value)
+                    <option value="{{preg_replace('/[^0-9]/', '', $value)}}">{{preg_replace('/[0-9]+/', '', $value)}}</option>
+                  @endforeach                  
+              @endforeach         
+              
+            </select>
+            <button class="btn btn-outline-success" type="submit">Pesquisar</button>
           </form>
         @endif            
           </div>

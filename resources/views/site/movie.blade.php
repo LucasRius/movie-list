@@ -8,4 +8,8 @@
 <!-- /END THE FEATURETTES -->
 </div><!-- /.container --> --}}
 
-{{getMovieId()}}
+{{
+
+getGenre()
+
+}}

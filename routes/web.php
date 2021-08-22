@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MovieController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,9 +22,7 @@ Route::group([
             return view('site.home');
         })->name('home');
         
-        Route::get('/movieList', function () {
-            return view('site.list');
-        })->name('list');
+        Route::get('/movieList', [MovieController::class, 'index'])->name('list');
         
         Route::get('/movie/{id?}', function () {
             return view('site.movie');
