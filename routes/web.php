@@ -13,6 +13,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group([
+    'midleware' => [],    
+], function(){
+    Route::name('site.')->group(function(){
+        Route::get('/', function () {
+            return view('site.home');
+        })->name('home');
+        
+        Route::get('/movieList', function () {
+            return view('site.list');
+        })->name('list');
+        
+        Route::get('/movie/{id?}', function () {
+            return view('site.movie');
+        })->name('movie');
+    });    
 });
